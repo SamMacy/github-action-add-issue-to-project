@@ -113,8 +113,6 @@ find_project_id() {
 
   _PROJECTID=$(echo "$_PROJECTS" | jq -r ".[] | select(.html_url == \"$_PROJECT_URL\").id")
   
-  echo _PROJECT_TYPE
-  echo _PROJECTID
   if [ "$_PROJECTID" != "" ]; then
     echo "$_PROJECTID"
   else
@@ -165,6 +163,7 @@ INITIAL_COLUMN_ID=$(find_column_id "$PROJECT_ID" "${INITIAL_COLUMN_NAME:?<Error>
 
 if [ -z "$INITIAL_COLUMN_ID" ]; then
   echo "INITIAL_COLUMN_ID is not found." >&2
+  echo $PROJECT_TYPE >$2
   exit 1
 fi
 
