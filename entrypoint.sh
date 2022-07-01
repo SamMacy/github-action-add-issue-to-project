@@ -165,6 +165,8 @@ if [ -z "$INITIAL_COLUMN_ID" ]; then
   echo "INITIAL_COLUMN_ID is not found." >&2
   echo "$PROJECT_TYPE"
   echo "$PROJECT_URL"
+  echo "$INITIAL_COLUMN_NAME"
+  echo "$(find_column_id "$PROJECT_ID" "${INITIAL_COLUMN_NAME:?<Error> required this environment variable}")"
   exit 1
 fi
 
