@@ -163,7 +163,8 @@ INITIAL_COLUMN_ID=$(find_column_id "$PROJECT_ID" "${INITIAL_COLUMN_NAME:?<Error>
 
 if [ -z "$INITIAL_COLUMN_ID" ]; then
   echo "INITIAL_COLUMN_ID is not found." >&2
-  echo $PROJECT_TYPE >$2
+  echo "$PROJECT_TYPE"
+  echo "$PROJECT_URL"
   exit 1
 fi
 
